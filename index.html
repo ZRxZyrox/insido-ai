@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insido AI — Intelligent AI Assistant by Darshit Tank</title>
+
+<meta name="description" content="Insido AI is an intelligent AI assistant created by Darshit Tank. Public preview of Insido AI v1.">
+<meta name="keywords" content="Insido AI, Insido AI assistant, Darshit Tank AI">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* 🔥 YOUR ORIGINAL CSS — UNCHANGED */
+:root{
+  --bg:#040207;
+  --text:#f5f5f5;
+  --user:#ffcc66;
+  --muted:#c7b79c;
+  --gold:#ffcc66;
+  --red:#ff3c00;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:radial-gradient(1200px 700px at 50% 100%,#140800,#040207);
+  color:var(--text);
+  overflow-x:hidden;
+}
+canvas{position:fixed;inset:0;z-index:-10;pointer-events:none}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-20;
+  background:
+    radial-gradient(900px 500px at 20% 15%,rgba(255,204,102,.18),transparent 60%),
+    radial-gradient(800px 500px at 80% 20%,rgba(255,60,0,.14),transparent 65%),
+    radial-gradient(700px 600px at 50% 90%,rgba(255,159,26,.12),transparent 65%);
+}
+
+/* HEADER */
+header{
+  position:fixed;top:0;left:0;right:0;
+  padding:14px 28px;
+  background:rgba(4,2,7,.35);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,204,102,.55);
+  display:flex;justify-content:space-between;align-items:center;
+  z-index:50;
+}
+.brand h1{font-weight:900}
+.brand p{font-size:.7rem;color:var(--muted)}
+.orb{
+  width:14px;height:14px;border-radius:50%;
+  background:radial-gradient(circle,var(--gold),var(--red));
+  box-shadow:0 0 18px var(--gold);
+  animation:pulse 2.5s infinite ease-in-out;
+}
+@keyframes pulse{50%{transform:scale(1.4)}}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:0 8%;
+}
+.hero h2{font-size:4.2rem;font-weight:900}
+.hero h2 span{
+  background:linear-gradient(90deg,#fff,var(--gold),var(--red));
+  -webkit-background-clip:text;color:transparent
+}
+.hero p{color:var(--muted);font-size:1.2rem;margin-top:24px}
+.scroll-btn{
+  margin-top:48px;padding:16px 46px;border-radius:40px;
+  font-weight:900;border:none;cursor:pointer;
+  background:linear-gradient(90deg,var(--gold),var(--red));
+}
+
+/* CORE */
+.wrapper{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 6%}
+.core{
+  width:100%;max-width:960px;
+  padding:64px;border-radius:46px;
+  background:rgba(255,204,102,.06);
+  border:1px solid rgba(255,204,102,.35);
+  text-align:center;
+}
+.core-box{
+  width:100%;min-height:160px;
+  padding:24px 28px;border-radius:34px;
+  background:rgba(0,0,0,.38);
+  border:1px solid rgba(255,204,102,.35);
+  color:var(--text);
+  font-size:1.05rem;
+  resize:none;
+}
+.ask-btn{
+  margin-top:34px;padding:18px 54px;border-radius:40px;
+  font-weight:900;border:none;
+  background:linear-gradient(90deg,var(--gold),var(--red));
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  position:fixed;bottom:0;left:0;right:0;
+  padding:12px 28px;
+  background:rgba(4,2,7,.35);
+  backdrop-filter:blur(12px);
+  border-top:1px solid rgba(255,204,102,.55);
+  display:flex;justify-content:space-between;
+  color:var(--muted);font-size:.75rem;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+  <div class="brand">
+    <h1>INSIDO</h1>
+    <p>Insido v1 · by Darshit Tank</p>
+  </div>
+  <div class="orb"></div>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>Cosmic <span>Intelligence</span></h2>
+    <p>Public preview of Insido AI</p>
+    <button class="scroll-btn" onclick="document.getElementById('ai').scrollIntoView({behavior:'smooth'})">
+      EXPLORE ↓
+    </button>
+  </div>
+</section>
+
+<section id="ai" class="wrapper">
+  <div class="core">
+    <textarea class="core-box" readonly>
+Insido AI v1 is currently available for local use only.
+
+Public access is coming soon.
+
+Created and owned by Darshit Tank.
+    </textarea>
+    <button class="ask-btn" onclick="alert('Public access coming soon. Run Insido locally.')">
+      COMING SOON
+    </button>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Insido AI</span>
+  <span>Contact: darshittaank@myyahoo.com</span>
+</footer>
+
+<script>
+/* BACKGROUND ANIMATION — UNCHANGED */
+const c=document.getElementById('bg'),ctx=c.getContext('2d');
+let w,h;function rs(){w=c.width=innerWidth;h=c.height=innerHeight}
+rs();addEventListener('resize',rs);
+const stars=[...Array(220)].map(()=>({x:Math.random()*w,y:Math.random()*h,v:Math.random()*0.5+.2}));
+const meteors=[...Array(6)].map(()=>({x:Math.random()*w,y:Math.random()*-h,l:Math.random()*140+80,v:Math.random()*7+5}));
+function animate(){
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle='#fff';
+  stars.forEach(s=>{s.y+=s.v;if(s.y>h){s.y=0;s.x=Math.random()*w}ctx.fillRect(s.x,s.y,1.2,1.2)});
+  ctx.strokeStyle='rgba(255,204,102,.65)';
+  meteors.forEach(m=>{
+    m.x+=m.v;m.y+=m.v;
+    if(m.y>h){m.x=Math.random()*w;m.y=Math.random()*-h}
+    ctx.beginPath();ctx.moveTo(m.x,m.y);ctx.lineTo(m.x-m.l,m.y-m.l);ctx.stroke();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
